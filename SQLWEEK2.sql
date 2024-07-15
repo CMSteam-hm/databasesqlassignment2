@@ -144,3 +144,12 @@ CREATE TABLE `expenses` (
 LOCK TABLES `expenses` WRITE;
 INSERT INTO `expenses` VALUES (1,'Groceries','Milk, Eggs, Bread',20.00,'2023-06-15'),(2,'Entertainment','Movie ticket',12.50,'2022-06-18'),(3,'Groceries','Fruits, Vegetables',35.75,'2021-06-20'),(4,'Transportation','Bus ticket',5.00,'2020-06-17'),(5,'Entertainment','Concert ticket',45.00,'2024-06-21'),(6,'Dining Out','Restaurant dinner',30.00,'2025-06-19'),(7,'Clothing','New shirt',15.99,'2026-04-12'),(8,'Bills','Electricity bill',75.40,'2027-02-01'),(9,'Other','Gift for friend',22.00,'2028-12-25'),(10,'Travel','Flight ticket',350.00,'2029-08-10');
 UNLOCK TABLES;
+CREATE TABLE transactions (
+    transaction_id INT,
+    category VARCHAR(50),
+    amount DECIMAL(10, 2)
+);
+SELECT category, SUM(amount) AS total_spent
+FROM transactions
+GROUP BY category;
+
